@@ -93,7 +93,7 @@ jobs:
 
       - name: Generate Secret
         run: |
-          printf "apiVersion: v1\nkind: Secret\nmetadata:\n  name: darkweb-1-secret\n  namespace: default\ntype: Opaque\nstringData:\n  DATABASE_PASSWORD: \"%s\"\n \
+          printf "apiVersion: v1\nkind: Secret\nmetadata:\n  name: darkweb-1-secret\n  namespace: default\ntype: Opaque\nstringData:\n  DATABASE_PASSWORD: \"%s\"\n" \
           "${{ secrets.DATABASE_PASSWORD }}" > secret.yaml
 
       - name: Replace image tag in deployment
