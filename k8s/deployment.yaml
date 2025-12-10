@@ -1,17 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: insurance-be
+  name: darkweb-1
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: insurance-be
+      app: darkweb-1
   template:
     metadata:
       labels:
-        app: insurance-be
+        app: darkweb-1
     spec:
       containers:
         - name: springboot-container
@@ -22,15 +22,15 @@ spec:
             - name: DATABASE_URL_PROD
               valueFrom:
                 configMapKeyRef:
-                  name: insurance-be-config
+                  name: darkweb-1-config
                   key: DATABASE_URL_PROD
             - name: DATABASE_USERNAME
               valueFrom:
                 configMapKeyRef:
-                  name: insurance-be-config
+                  name: darkweb-1-config
                   key: DATABASE_USERNAME
             - name: DATABASE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: insurance-be-secret
+                  name: darkweb-1-secret
                   key: DATABASE_PASSWORD
