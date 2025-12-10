@@ -1,3 +1,17 @@
 spring:
+  main:
+    allow-circular-references: true
   application:
     name: jarkomdat-darkweb
+    
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE}
+
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
